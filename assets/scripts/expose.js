@@ -3,22 +3,23 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  htmlElement.addEventListener('input', function() {
-    let soundName = document.getElementById('horn-select');
-    let image = document.getElementsByClassName('img')
+  let hornOptions = document.getElementById('horn-select');
 
-    if(soundName == 'air-horn'){
-      
+  hornOptions.addEventListener('change', function() {
+    let optionSound = hornOptions.options[hornOptions.selectedIndex].text;
+
+    if(optionSound == 'air-horn'){
+      //image.src = 'assets/images/air-horn.svg';
       //load the sound
     }
 
-    if(soundName == 'car-horn'){
-      let image = document.getElementsByClassName('img')
+    if(optionSound == 'car-horn'){
+      // change image
       //load the sound
     }
 
-    if(soundName == 'party-horn'){
-      let image = document.getElementsByName('img')
+    if(optionSound == 'party-horn'){
+      //change image
       //load the sound
     }
   })
