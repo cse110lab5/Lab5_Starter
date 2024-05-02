@@ -4,24 +4,31 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   let hornOptions = document.getElementById('horn-select');
+  let button = document.querySelector('button');
+  let sound = document.querySelector('.hidden');
+  let image = document.querySelector('img'); 
 
   hornOptions.addEventListener('change', function() {
-    let optionSound = hornOptions.value;
-    let image = document.getElementsByTagName('img'); //need to get image source
-    console.log(optionSound)
-    if(optionSound === 'air-horn'){
-      image[0].src = 'assets/images/air-horn.svg';
-      //load the sound
+    let hornEl = hornOptions.value;
+  
+    if(hornEl === 'air-horn'){
+      image.src = 'assets/images/air-horn.svg';
+      sound.src = 'assets/audio/air-horn.mp3'
     }
 
-    if(optionSound === 'car-horn'){
-      image[0].src = 'assets/images/car-horn.svg';
-      //load the sound
+    else if(hornEl === 'car-horn'){
+      image.src = 'assets/images/car-horn.svg';
+      sound.src = 'assets/audio/car-horn.mp3'
+
     }
 
-    if(optionSound === 'party-horn'){
-      image[0].src = 'assets/images/party-horn.svg';
-      //load the sound
+     else if(hornEl === 'party-horn'){
+      image.src = 'assets/images/party-horn.svg';
+      sound.src = 'assets/audio/party-horn.mp3'
     }
-  })
+  });
+
+  button.addEventListener('click', function() {
+    sound.play();
+  });
 }
