@@ -42,4 +42,7 @@ function init() {
     }
     sound.play();
   });
+
+  //Add slider functionality below here
+  
 }
