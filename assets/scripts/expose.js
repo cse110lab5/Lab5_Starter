@@ -13,22 +13,21 @@ function init() {
     let hornEl = hornOptions.value;
   
     if(hornEl === 'air-horn'){
+      isParty = false;
       image.src = 'assets/images/air-horn.svg';
       sound.src = 'assets/audio/air-horn.mp3';
-      isParty = false;
     }
 
     else if(hornEl === 'car-horn'){
+      isParty = false;
       image.src = 'assets/images/car-horn.svg';
       sound.src = 'assets/audio/car-horn.mp3';
-      isParty = false;
     }
 
      else if(hornEl === 'party-horn'){
-      
+      isParty = true;
       image.src = 'assets/images/party-horn.svg';
       sound.src = 'assets/audio/party-horn.mp3';
-      isParty = true;
     }
   });
 
