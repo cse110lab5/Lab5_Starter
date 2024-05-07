@@ -5,10 +5,10 @@ Ryan Izadshenas
 
 
 **Expose.html Link:**
-https://cse110lab5.github.io/Lab5_Starter/expose.html
+
 
 **Explore.html Link:**
-https://cse110lab5.github.io/Lab5_Starter/explore.html
+
 
 ## Pt3 Check Your Understanding
 **Q1:** Unit testing would not be too useful here as there would be multiple parts and features that must work together to complete one operation. The unit tests would have to track a message that is sent and received by another user, which would be the interaction of two systems. 
