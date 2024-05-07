@@ -8,23 +8,33 @@ function init() {
   let image = document.querySelector('img');
 
   // Populate the dropdown menu with voices
-  function populateVoices() {
-    let voices = synth.getVoices();
+  function populateVoiceList() {
+    if (typeof speechSynthesis === "undefined") {
+      return;
+    }
+  
+    const voices = speechSynthesis.getVoices();
+  
     for (let i = 0; i < voices.length; i++) {
       const option = document.createElement("option");
       option.textContent = `${voices[i].name} (${voices[i].lang})`;
+  
+      if (voices[i].default) {
+        option.textContent += " — DEFAULT";
+      }
+  
       option.setAttribute("data-lang", voices[i].lang);
       option.setAttribute("data-name", voices[i].name);
-      voiceSelect.appendChild(option);
+      document.getElementById("voiceSelect").appendChild(option);
     }
   }
-
-  // Ensure voices are populated before initializing
-  if (synth.onvoiceschanged !== undefined) {
-    synth.onvoiceschanged = populateVoices;
-  } else {
-    // If onvoiceschanged is not supported, populate voices immediately
-    populateVoices();
+  
+  populateVoiceList();
+  if (
+    typeof speechSynthesis !== "undefined" &&
+    speechSynthesis.onvoiceschanged !== undefined
+  ) {
+    speechSynthesis.onvoiceschanged = populateVoiceList;
   }
 
   voiceSelect.addEventListener('change', function() {
